@@ -7,23 +7,39 @@ object bolichito{
     var objetoVidriera
     var objetoMostrador
 
-    method objetoVidriera(unObjeto)
+    method objetoVidriera(unObjeto){
+        objetoVidriera = unObjeto
+    }
     
-    method objetoMostrador(unObjeto)
+    method objetoMostrador(unObjeto){
+        objetoMostrador = unObjeto
+    }
 
-    method objetoVidriera()
+    method objetoVidriera() = objetoVidriera
 
-    method objetoMostrador()
+    method objetoMostrador() = objetoMostrador
 
-    method esBrillante()
+    method esBrillante(){
+        return objetoVidriera.material().esBrillante() and objetoMostrador.material().esBrillante()
+    }
 
-    method esMonocromatico()
+    method esMonocromatico(){
+        return objetoVidriera.color() == objetoMostrador.color()
+    }
 
-    method estaDesequilibrado()
+    method estaDesequilibrado(){
+        return objetoMostrador.peso() > objetoVidriera.peso()
+    }
 
-    method tieneAlgoDeColor(color)
+    method tieneAlgoDeColor(color){
+        return objetoVidriera.color() == color or objetoMostrador.color() == color
+    }
 
-    method puedeMejorar()
+    method puedeMejorar(){
+        return self.estaDesequilibrado() or self.esMonocromatico()
+    }
 
-    method puedeOfrecerleAlgoA(persona)
+    method puedeOfrecerleAlgoA(persona){
+        return persona.gustar(objetoMostrador) or persona.gustar(objetoVidriera)
+    }
 }
