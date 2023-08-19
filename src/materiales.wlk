@@ -14,3 +14,6 @@ object cuero{
     method esBrillante() = false
 }
 
+object vidrio{
+    method esBrillante() = true
+}
